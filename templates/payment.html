@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+
+    <!-- Site Metas -->
+    <title>MY MESS MENU</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/responsive.css')}}">
+    <!-- color -->
+    <link id="changeable-colors" rel="stylesheet" href="{{url_for('static',filename='css/colors/orange.css')}}" />
+
+    <!-- Modernizer -->
+    <script src="{{url_for('static',filename='js/modernizer.js')}}"></script>
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div class="col-lg-12 col-md-12" style="padding-block: 50px;">
+        <div class="register-modal text-center">
+            <div class="register-main-modal">
+                <div class="register-heading">
+                    <h1>Payment</h1>
+                </div>
+                <hr>
+                <div class="modal-body text-center"
+                    style="margin-inline:10%;border:2px solid black;border-radius:10px;box-shadow:0 0 5px black;">
+                    {% for res in menuDetail %}
+                    <form class="orderForm"oninput="totalprice.value=parseInt(nooftiffeen.value)*parseInt(tprice.value)" method="post"
+                        action="/orderTiffin">
+                         
+                             
+                            <div class="col-md-12">
+                                <input pattern="*[A-Za-z ]" class="form-control" type="text" name="cname"
+                                    placeholder="Enter UPI ID" required>
+                            </div>
+                             
+                            
+                            <div class="col-sm-12">
+                                <label for="">Total price</label>
+                                <input pattern="*[0-9]" class="form-control" type="number" value="{{res[1]}}"
+                                    name="totalprice" readonly>
+                            </div>
+                            
+                         
+                        <div style="margin-top: 20px;">
+                            <button class="btn btn-primary btn-lg" type="submit">Make Payment</button>
+                        </div>
+                    </form>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

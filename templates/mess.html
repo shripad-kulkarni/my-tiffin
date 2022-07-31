@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+
+    <!-- Site Metas -->
+    <title>MY MESS MENU</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}" />
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}" />
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/responsive.css')}}" />
+    <!-- color -->
+    <link id="changeable-colors" rel="stylesheet" href="{{url_for('static',filename='css/colors/orange.css')}}" />
+
+    <!-- Modernizer -->
+    <script src="{{url_for('static',filename='js/modernizer.js')}}"></script>
+
+
+</head>
+
+<body>
+    <div class="tab-menu">
+        <div class="slider slider-nav">
+            <div class="tab-title-menu">
+                <h2>Dashboard</h2>
+            </div>
+            <div class="tab-title-menu">
+                <h2>Add Menu</h2>
+            </div>
+            <div class="tab-title-menu">
+                <h2>View Menu</h2>
+            </div>
+            <div class="tab-title-menu">
+                <h2>View Orders</h2>
+            </div>
+        </div>
+        <div class="slider slider-single">
+            <div id="Dashborad" class="register-modal pad-top-100 pad-bottom-100">
+                <div class="row" style="margin-inline: 10%;">
+                    <div class="col-sm-6 text-center text-capitalize">
+                        {% for res in messdetails%}
+                        <h1>
+                            WEL-COME :
+                            <span class="typer" id="some-id" data-delay="200" data-delim=":" data-words="{{res[1]}}"
+                                data-colors="red"></span>
+                            <span class="cursor" data-cursorDisplay="_" data-owner="some-id"></span>
+                        </h1>
+                        <form action="/updateMess" method="post">
+                            <div>
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon3">Your Name </span>
+                                    <input type="text" id="name" name="name" class="form-control" value="{{res[1]}}"
+                                        aria-describedby="basic-addon3" readonly>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button"><i class="fa fa-edit"
+                                                onclick="changeReadonly('name')"></i></button>
+                                    </span>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon3">Your Email </span>
+                                    <input type="text" id="email" class="form-control text-lowercase" value="{{res[3]}}"
+                                        aria-describedby="basic-addon3" readonly>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button"><i class="fa fa-edit"
+                                                onclick="changeReadonly('email')"></i></button>
+                                    </span>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon3">Your Mobile No
+                                    </span>
+                                    <input type="text" maxlength="10" minlength="10" id="mobile" name="mobile"
+                                        class="form-control" value="{{res[4]}}" aria-describedby="basic-addon3"
+                                        readonly>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button"><i class="fa fa-edit"
+                                                onclick="changeReadonly('mobile')"></i></button>
+                                    </span>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon3">Your Address
+                                    </span>
+                                    <input type="text" id="address" name="address" class="form-control"
+                                        value="{{res[6]}}" aria-describedby="basic-addon3" readonly>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button"><i class="fa fa-edit"
+                                                onclick="changeReadonly('address')"></i></button>
+                                    </span>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon3">Your Password
+                                    </span>
+                                    <input type="password" id="password" name="password" class="form-control"
+                                        value="{{res[5]}}" aria-describedby="basic-addon3" readonly>
+                                    <span class="input-group-btn">
+                                        <button onclick="changeType('password')" class="btn btn-default"
+                                            type="button"><i class="fa fa-eye"></i></button>
+                                    </span><span class="input-group-btn">
+                                        <button onclick="changeReadonly('password')" class="btn btn-default"
+                                            type="button"><i class="fa fa-edit"></i></button>
+                                    </span>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon3">Mess Photo
+                                    </span>
+                                    <input type="file" id="photo" name="address" class="form-control">
+
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-primary">Update</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div>
+                            {% set imgname = "images/mess/"+res[7] %}
+                            <img src="{{ url_for('static',filename=imgname) }}" alt="not fount" width="80%"
+                                height="300px" style="border-radius:10px;box-shadow:0 2px 10px orange;">
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div>
+                <div id="Dashborad" class="add-menu pad-top-100 pad-bottom-100">
+                    <div class="container" style="height:auto ;">
+                        <div class="header text-center">
+                            <h1>Add Menu</h1>
+                        </div>
+                        <hr class="line" />
+                        <div class="row" style="display: flex; justify-content: center">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <script>
+                                    function addMenu() {
+                                        var cnt =
+                                            parseInt(document.getElementById("cnt").value) +
+                                            1;
+                                        var addForm = document.getElementById("items");
+                                        var divele = document.createElement("div");
+                                        var inputele = document.createElement("input");
+                                        inputele.setAttribute("type", "text");
+                                        let plac = "Item " + cnt;
+                                        inputele.setAttribute("placeholder", plac);
+                                        inputele.setAttribute("class", "form-control");
+                                        let itName = "item" + cnt;
+                                        inputele.setAttribute("name", itName);
+
+                                        divele.appendChild(inputele);
+
+                                        addForm.appendChild(divele);
+                                        document.getElementById("cnt").value = cnt;
+                                        console.log(cnt);
+                                    }
+                                </script>
+                                <form class="form" action="/addItems" method="post" id="addMenuForm">
+                                    <input type="hidden" name="itemNo" id="cnt" value="5" />
+                                    <div class="items" id="items">
+                                        <div>
+                                            <input class="form-control" type="text" name="item1" placeholder="Item 1" />
+                                        </div>
+                                        <div>
+                                            <input class="form-control" type="text" name="item2" placeholder="Item 2" />
+                                        </div>
+                                        <div>
+                                            <input class="form-control" type="text" name="item3" placeholder="Item 3" />
+                                        </div>
+                                        <div>
+                                            <input class="form-control" type="text" name="item4" placeholder="Item 4" />
+                                        </div>
+                                        <div>
+                                            <input class="form-control" type="text" name="item5" placeholder="Item 5" />
+                                        </div>
+                                    </div>
+                                    <div class="addBtn">
+                                        <button onclick="addMenu()" type="button" class="btn btn-primary btn-sm"
+                                            style="float: right; margin-bottom: 10px">
+                                            <i class="fa fa-plus"></i> Add more items
+                                        </button>
+                                    </div>
+                                    <br />
+                                    <div></div>
+                                    <div>
+                                        <input class="form-control" min="1" type="number" name="price"
+                                            placeholder="Price" />
+                                    </div>
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <div class="text-center">
+                                        <button class="btn btn-success btn-lg" type="submit">
+                                            Add Menu
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- end row -->
+                    </div>
+                    <!-- end container -->
+                </div>
+            </div>
+
+            <div>
+                <div class="special-box">
+                    <div id="owl-demo">
+                        <div class="item item-type-zoom">
+                            
+                            <a class="item-hover text-capitalize">
+                                <div class="item-info">
+                                    <div class="headline">
+                                        <span>Price : {{viewmessmenuDetails[0][1]}}</span>
+                                        <div class="line"></div>
+                                        <div class="dit-line">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    {% set list1 = viewmessmenuDetails[0][0].split(',') %}
+                                                    <ul>
+                                                        {% set Len = list1|length %}
+                                                        {% for i in range(0,Len-1) %}
+                                                        <li>
+                                                            <i class="fa fa-angle-right"></i> {{list1[i]}}
+                                                        </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                                 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                 
+                            </a>
+
+                        </div>
+
+                         
+
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="col-sm-12">
+
+                    <div class="card-header text-center">
+                        <h1>Your Orders</h1>
+                    </div>
+                    <hr style="height:2px ;background-color:black;">
+
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Sr No</th>
+                                    <th>Mess Name</th>
+                                    <th>Menu</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>No of Tiffins</th>
+                                    <th>Address</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for res in getmessorders %}
+                                <tr>
+                                    <td>{{loop.index}}</td>
+                                    <td>{{res[9]}}</td>
+                                    <td>{{res[10]}}</td>
+                                    <td>{{res[1]}}</td>
+                                    <td>{{res[2]}}</td>
+                                    <td>{{res[3]}}</td>
+                                    <td>{{res[11]}}</td>
+                                    <td>{{res[4]}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-title-menu">
+        <a href="/logout">
+            <h2>Logout</h2>
+        </a>
+    </div>
+
+    <script src="{{url_for('static',filename='js/all.js')}}"></script>
+    <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{{url_for('static',filename='js/custom.js')}}"></script>
+</body>
+
+</html>

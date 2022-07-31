@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+
+    <!-- Site Metas -->
+    <title>MY MESS MENU</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/responsive.css')}}">
+    <!-- color -->
+    <link id="changeable-colors" rel="stylesheet" href="{{url_for('static',filename='css/colors/orange.css')}}" />
+
+    <!-- Modernizer -->
+    <script src="{{url_for('static',filename='js/modernizer.js')}}"></script>
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div class="col-lg-12 col-md-12" style="padding-block: 50px;">
+        <div class="register-modal text-center">
+            <div class="register-main-modal">
+                <div class="register-heading">
+                    <h1>Order Tiffeen</h1>
+                </div>
+                <hr>
+                <div class="modal-body text-center"
+                    style="margin-inline:10%;border:2px solid black;border-radius:10px;box-shadow:0 0 5px black;">
+                    {% for res in menuDetail %}
+                    <form class="orderForm"oninput="totalprice.value=parseInt(nooftiffeen.value)*parseInt(tprice.value)" method="post"
+                        action="/orderTiffin">
+                        <div class="row">
+                             
+                            <input type="hidden" name="mname" value="{{res[2]}}" id="">
+                            <input type="hidden" name="omenu" value="{{res[0]}}" id="">
+                            <input type="hidden" name="memail" value="{{memail[0][0]}}" >
+                            <div class="col-md-6">
+                                <input pattern="*[A-Za-z ]" class="form-control" id="name" type="text" name="cname"
+                                    placeholder="Customer Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" type="email" name="cemail" placeholder="Customer Email"
+                                    value="{{username}}" readonly>
+                            </div>
+                            <div class="col-sm-6">
+                                <input pattern="*[0-9]" class="form-control" type="text" name="mobile"
+                                    placeholder="Mobile no" min="1" id="mobile" required>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="">Tiffeen price</label>
+                                <input class="form-control" type="number" value="{{res[1]}}" name="tprice" readonly>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="">No of tiffeens</label>
+                                <input pattern="*[0-9]" class="form-control" type="number" name="nooftiffeen"
+                                    placeholder="No of Tiffeens" min="1" value="1" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="">Total price</label>
+                                <input pattern="*[0-9]" id="totalprice" class="form-control" type="number" value="{{res[1]}}"
+                                    name="totalprice" readonly>
+                            </div>
+                            <div class="col-sm-6">
+                                <input class="form-control" id="address" type="text" placeholder="Order address" name="address">
+                            </div>
+                        </div>
+                        <div style="margin-top: 20px;">
+                            <button class="btn btn-primary btn-lg" id="ordBtn" hidden type="submit">Confirm Order</button>
+                        </div>
+                        <button class="btn btn-primary" id="pyBTn" type="button" onclick="paymentBtn()">Make Payment</button>
+                    </form>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- payment module -->
+    <div id="paymentModal" class="user-modal" style="display:none ;">
+        <div class="modal-content">
+            <span id="pymentclose" onclick="pymentclose()">&times;</span>
+            <p>Make payment through UPI</p>
+            <form  class="user-order-login-form" id="pymentForm">
+                    <div class="col-md-12">
+                        <input pattern="*[A-Za-z ]" class="form-control" id="upi" type="text" name="cname"
+                            placeholder="Enter UPI ID" required>
+                    </div>
+                    <div class="col-sm-12">
+                        <label for="">Total price</label>
+                        <input pattern="*[0-9]" class="form-control" id="paymentPrice" type="number" 
+                            name="totaprice" readonly>
+                    </div>
+                <div style="margin-top: 20px;">
+                    <button onclick="messagePayment()" class="btn btn-primary btn-lg" type="button">Make Payment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="{{url_for('static',filename='js/all.js')}}"></script>
+    <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{{url_for('static',filename='js/custom.js')}}"></script>
+    <script src="{{url_for('static',filename='js/location.js')}}"></script>
+</body>
+
+</html>

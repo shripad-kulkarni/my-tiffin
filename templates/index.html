@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+
+    <!-- Site Metas -->
+    <title>MY MESS MENU</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/responsive.css')}}">
+    <!-- color -->
+    <link id="changeable-colors" rel="stylesheet" href="{{url_for('static',filename='css/colors/orange.css')}}" />
+
+    <!-- Modernizer -->
+    <script src="{{url_for('static',filename='js/modernizer.js')}}"></script>
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+{% if loginstatus %}
+<script>
+    alert('Login Failed')
+</script>
+{% endif %}
+
+    <div id="loader">
+        <div id="status"></div>
+    </div>
+    <div id="site-header">
+        <header id="header" class="header-block-top">
+            <div class="container">
+                <div class="row">
+                    <div class="main-menu">
+                        <!-- navbar -->
+                        <nav class="navbar navbar-default" id="mainNav">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                    data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <div class="logo">
+                                    <a class="navbar-brand js-scroll-trigger logo-header" href="#">
+                                        <!--<img src="images/logo.png" alt="">-->
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="active"><a href="#banner">Home</a></li>
+                                    <li><a href="#about">About us</a></li>
+                                    <li><a href="#menu">Menu</a></li>
+                                    <li><a href="#footer">Contact us</a></li>
+                                    <li><a href="#mess">Sign in/ Sign Up</a></li>
+                                </ul>
+                            </div>
+                            <!-- end nav-collapse -->
+                        </nav>
+                        <!-- end navbar -->
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container-fluid -->
+        </header>
+        <!-- end header -->
+    </div>
+    <!-- end site-header -->
+
+    <div id="banner" class="banner full-screen-mode parallax">
+        <div class="container pr">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="banner-static">
+                    <div class="banner-text">
+                        <div class="banner-cell">
+                            <h1><span class="typer" id="some-id" data-delay="200" data-delim=":"
+                                    data-words="My Mess Menu" data-colors="red"></span><span class="cursor"
+                                    data-cursorDisplay="_" data-owner="some-id"></span></h1><br>
+
+                            <h1>Enjoy Food : <span class="typer" id="some-id" data-delay="200" data-delim=":"
+                                    data-words="You Like" data-colors="red"></span><span class="cursor"
+                                    data-cursorDisplay="_" data-owner="some-id"></span></h1>
+                            <br><br>
+                            <div class="book-btn">
+                                <a href="#menu" class="table-btn hvr-underline-from-center">TODAY's MENU</a>
+                            </div>
+                            <a href="#about">
+                                <div class="mouse"></div>
+                            </a>
+                        </div>
+                        <!-- end banner-cell -->
+                    </div>
+                    <!-- end banner-text -->
+                </div>
+                <!-- end banner-static -->
+            </div>
+            <!-- end col -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end banner -->
+
+    <div id="about" class="about-main pad-top-100 pad-bottom-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <h2 class="block-title"> About Us </h2>
+                        <h3>IT STARTED, QUITE SIMPLY, LIKE THIS...</h3>
+                        <p> When peoples are away from their homes for work, study, etc. in a new city,
+                            they are looking for good food. And they are looking for the food which is afforded
+                            to them that’s why they are going to the mess. Sometimes there is not a good menu in
+                            one of the messes. That’s why they are looking at the menu in another mess physically. </p>
+
+                        <p> That’s why I have provided a menu through an online mode or digital
+                            mode. And have provided connections between users and mess. I have
+                            provided the actual location of that mess where the menu is good and users
+                            want to go. Users are also allowed to give feedback on the respective mess
+                            they are visited. </p>
+
+                        <p> That’s why the objective of the system is that users can see the good
+                            menu among the various mess menu without going physically using this
+                            website. That can save the time and money of users. </p>
+                    </div>
+                </div>
+                <!-- end col -->
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <div class="about-images">
+                            <img class="about-main" src="{{ url_for('static',filename='images/about-main.jpg') }}"
+                                alt="sp-menu">
+                            <img class="about-inset" src="{{ url_for('static',filename='images/about-inset.jpg') }}"
+                                alt="sp-menu">
+                        </div>
+                    </div>
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+
+    <div id="menu" class="mess-main">
+        <!-- <div class="container"> -->
+        <div class="special-menu pad-top-100 parallax">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                            <h2 class="block-title color-white text-center"> Today's Special </h2>
+                        </div>
+                        <div class="special-box">
+                            <div id="owl-demo">
+                                {% for menu in allMenus %}
+                                <div class="item item-type-zoom">
+                                    <div class="item-img">
+                                        {% set imgname = "images/mess/"+menu[3] %}
+                                        <img src="{{ url_for('static',filename=imgname) }}" alt="sp-menu">
+                                    </div>
+                                    <a class="item-hover text-capitalize">
+                                        <div class="item-info">
+                                            <div class="headline">
+                                                <span>{{menu[1]}}</span>
+                                                <div class="line"></div>
+                                                <div class="dit-line">
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            {% set list1 = menu[5].split(',') %}
+                                                            <ul>
+                                                                {% set Len = list1|length %}
+                                                                {% for i in range(0,Len-1) %}
+                                                                <li>
+                                                                    <i class="fa fa-angle-right"></i> {{list1[i]}}
+                                                                </li>
+                                                                {% endfor %}
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-sm-6" style="margin-block:20px;">
+                                                            <div class="thali-price"
+                                                                style="border:3px solid black;border-radius:50%;padding:10px">
+                                                                <h1><span
+                                                                        style='font-size:30px;color:black;'>&#8377;{{menu[6]}}
+                                                                        <sub
+                                                                            style='font-size:12px;padding-top:20px;'>only</sub></span>
+                                                                </h1>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row text-center" style="margin-bottom:20px;">
+                                            <div class="col-sm-6">
+                                                <button onclick="usermyBtn('{{menu[0]}}')" class="btn btn-primary">Order
+                                                    Tiffin</button>
+                                            </div>
+
+                                            {% set coordinates = menu[4].split(',') %}
+                                            <div class="col-sm-6"><a
+                                                    href="http://maps.google.de/maps?q=loc:{{coordinates[0]}},{{coordinates[1]}}"
+                                                    class="btn btn-success" target="_blank">Get Direction <i
+                                                        class="fa fa-location-arrow"></i></a></div>
+                                        </div>
+                                    </a>
+
+                                </div>
+
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                        <!-- end special-box -->
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end special-menu -->
+        <!-- </div> -->
+        <!-- end container -->
+    </div>
+    <!-- end mess -->
+
+    <!-- user login modal start -->
+    <!-- <button id="usermyBtn">Open Modal</button> -->
+
+    <div id="user-login-Modal" class="user-modal">
+        <div class="modal-content">
+            <span class="user-close">&times;</span>
+            <p>Login</p>
+            <form action="/order" method="post" class="user-order-login-form">
+                <input type="hidden" name="menuid" id="menuid">
+                <input type="text" placeholder="Username/email" name="username" class="form-control" required>
+                <input type="password" placeholder="Password" name="password" class="form-control" required>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+    <!-- user login modal end  -->
+
+    {% if accountstatus %}
+    <script>
+        alert('Registration successfull!')
+    </script>
+    {% endif %}
+    {% if accountexistsstatus %}
+    <script>
+        alert('Account already exists !!!')
+    </script>
+    {% endif %}
+    <div id="mess" class="menu-main">
+        <!-- <div class="container"> -->
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="tab-menu">
+                    <div class="slider slider-nav">
+                        <div class="tab-title-menu">
+                            <h2>Mess Login</h2>
+                            <p> <i class="fa fa-sign-in"></i> </p>
+                        </div>
+                        <div class="tab-title-menu">
+                            <h2>Mess Create Account</h2>
+                            <p> <i class="fa fa-user-plus"></i> </p>
+                        </div>
+                        <div class="tab-title-menu">
+                            <h2>Customer Login</h2>
+                            <p> <i class="fa fa-sign-in"></i> </p>
+                        </div>
+                        <div class="tab-title-menu">
+                            <h2>Customer Create Account</h2>
+                            <p> <i class="fa fa-user-plus"></i> </p>
+                        </div>
+                    </div>
+                    <div class="slider slider-single">
+                        <div>
+                            <div class="col-lg-12 col-md-12 text-center" style="padding-block: 50px;">
+                                <div class="login-modal" id="login-modal">
+                                    <div class="main-modal">
+                                        <div class="login-heading">
+                                            <h1>Login</h1>
+                                        </div>
+                                        <hr>
+                                        <div class="modal-body">
+                                            <form action="/messLogin" method="post">
+                                                <div>
+                                                    <input class="form-control" type="text" name="username"
+                                                        placeholder="Enter username" required>
+                                                </div>
+                                                <div>
+                                                    <input class="form-control" type="password" name="password"
+                                                        placeholder="Enter password" required>
+                                                </div>
+                                                <div>
+                                                    <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="col-lg-12 col-md-12" style="padding-block: 50px;">
+                                <div class="register-modal text-center">
+                                    <div class="register-main-modal">
+                                        <div class="register-heading">
+                                            <h1>Create an Account</h1>
+                                        </div>
+                                        <hr>
+                                        <div class="modal-body text-center"
+                                            style="margin-inline:10%;border:2px solid black;border-radius:10px;box-shadow:0 0 5px black;">
+                                            <form action="/addMess" method="post" action="/addItems"
+                                                enctype="multipart/form-data">
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <input pattern="*[A-Za-z]" class="form-control" type="text"
+                                                            name="messname" placeholder="Mess Name" required>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <input pattern="*[A-Za-z]" class="form-control" type="text"
+                                                            name="messowner" placeholder="Owner name" required>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input class="form-control" type="email" name="messemail"
+                                                            placeholder="Email" required>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input class="form-control" type="tel" name="messmobile"
+                                                            placeholder="Mobile no" minlength="10" maxlength="10"
+                                                            required>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                                            title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                                            class="form-control" type="password" name="password"
+                                                            placeholder="Password" id="password" required>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input class="form-control" type="password" name="cpassword"
+                                                            placeholder="Confirm password" onkeyup="checkPassword()"
+                                                            id="cpassword" required>
+                                                        <span id="passalert" style="float: left;"
+                                                            class="text-danger"></span>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input class="form-control" type="text" name="address"
+                                                            placeholder="Address" required>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input type="hidden" name="mlocation">
+
+                                                        <strong style="float:left ;">Mess Photo : </strong>
+                                                        <input onclick="mlocation.value=getCoordinates()"
+                                                            class="form-control" type="file" name="file" required>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <strong style="float:left ;">Mess Location : </strong><br>
+                                                        <small style="float:left ;" class="text-warning">Warning :
+                                                            Make sure you are at yout mess location</small>
+                                                        <button type="button" class="btn btn-primary btn-sm"
+                                                            onclick="getLocation()"
+                                                            style="letter-spacing:1.2px; margin-block:10px; float:right;"><i
+                                                                class="fa fa-refresh"></i> Reload Map</button>
+                                                        <iframe id="myframe" src="" width="100%" height="300px"
+                                                            style="border:0; border-radius:10px;" allowfullscreen="Yes"
+                                                            loading="lazy"
+                                                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                                    </div>
+                                                </div>
+                                                <div style="margin-top: 20px;">
+                                                    <button class="btn btn-primary btn-lg" type="submit">Create
+                                                        Account</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="col-lg-12 col-md-12 text-center" style="padding-block: 50px;">
+                                <div class="login-modal" id="login-modal">
+                                    <div class="main-modal">
+                                        <div class="login-heading">
+                                            <h1>Login</h1>
+                                        </div>
+                                        <hr>
+                                        <div class="modal-body">
+                                            <form action="/customerLogin" method="post">
+                                                <div>
+                                                    <input class="form-control" type="text" name="email"
+                                                        placeholder="Enter username" required>
+                                                </div>
+                                                <div>
+                                                    <input class="form-control" type="password" name="password"
+                                                        placeholder="Enter password" required>
+                                                </div>
+                                                <div>
+                                                    <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="col-lg-12 col-md-12" style="padding-block: 50px;">
+                                <div class="register-modal text-center">
+                                    <div class="register-main-modal">
+                                        <div class="register-heading">
+                                            <h1>Create an Account</h1>
+                                        </div>
+                                        <hr>
+                                        <div class="modal-body"
+                                            style="margin-inline:10%;border:2px solid black;border-radius:10px;box-shadow:0 0 5px black;">
+                                            <form action="/addCustomer" method="post">
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <input pattern="*[A-Za-z]" class="form-control" type="text"
+                                                            name="cname" placeholder="Customer Name" required>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <input class="form-control" type="email" name="cemail"
+                                                            placeholder="Customer Email" required>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input class="form-control" type="tel" name="cmobile"
+                                                            placeholder="Customer Mobile" required>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input class="form-control" type="text" name="caddress"
+                                                            placeholder="Customer Address" required>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <input pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                                            title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                                            class="form-control" type="password" name="cpass"
+                                                            placeholder="Customer Password" id="custpass" required>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input class="form-control" type="password" name="cconpass"
+                                                            placeholder="Confirm password" onkeyup="checkCustomerPass()"
+                                                            id="custCpass" required>
+                                                        <span id="passalert2" style="float: left;"
+                                                            class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                                <div style="margin-top: 20px;">
+                                                    <button class="btn btn-primary btn-lg" type="submit">Create
+                                                        Account</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end tab-menu -->
+            </div>
+            <!-- end col -->
+        </div>
+        <!-- end row -->
+        <!-- </div> -->
+        <!-- end container -->
+    </div>
+    <!-- end menu -->
+
+<!--Admin Login Modal -->
+<div id="adminLoginModel" class="modal admin-modal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <h3>Admin Login <span class="close">&times;</span></h3>
+            <hr>
+            <div class="modal-body">
+                <form action="/adminLogin" method="post">
+                    <div class="form-group">
+                        <label for="adminloginEmail">Email address</label>
+                        <input type="email" class="form-control" name="adminEmail" id="adminloginEmail"
+                            aria-describedby="emailHelp" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="adminloginpassword">Password</label>
+                        <input type="password" class="form-control" name="adminPassword" id="adminloginPassword"
+                            placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="footer" class="footer-main">
+        <div class="footer-box pad-top-70">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-in-main">
+                        <!-- <div class="footer-logo">
+                            <div class="text-center">
+                                <img src="images/logo.png" alt="" />
+                            </div> -->
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="footer-box-a">
+                            <h3>About Us</h3>
+                            <p>Users can see the good menu among the various mess menu without going physically using
+                                this website. That can save the time and money of users.</p>
+                            <ul class="socials-box footer-socials pull-left">
+                                <li>
+                                    <a href="#">
+                                        <div class="social-circle-border"><i class="fa  fa-facebook"></i></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="social-circle-border"><i class="fa fa-whatsapp"></i></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="social-circle-border"><i class="fa fa-linkedin"></i></div>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <!-- end footer-box-a -->
+                    </div>
+                    <!-- end col -->
+
+                    <!-- end col -->
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="footer-box-c">
+                            <h3>Contact Us</h3>
+                            <p>
+                                <i class="fa fa-map-signs" aria-hidden="true"></i>
+                                <span>Sinhgad Institute Of Management , Pune</span>
+                            </p>
+                            <p>
+                                <i class="fa fa-mobile" aria-hidden="true"></i>
+                                <span>
+                                    +91 7350765566
+                                </span>
+                            </p>
+                            <p>
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <span>onkarkulkarni1919@gmail.com</span>
+                            </p>
+                        </div>
+                        <!-- end footer-box-c -->
+                    </div>
+                    <!-- end col -->
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="footer-box-d">
+                            <h3>We are here</h3>
+
+                            <div class="map">
+                                <iframe style="border:1px solid white;margin:10px;"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.4074302408817!2d73.83330511497333!3d18.465195187441235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc295ed8144aebd%3A0xa33411c6a455191!2sSinhgad%20Institute%20of%20Management%20(SIOM)!5e0!3m2!1sen!2sin!4v1658153763101!5m2!1sen!2sin"
+                                    allowfullscreen="Yes" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                        <!-- end footer-box-d -->
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end footer-in-main -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+        <div id="copyright" class="copyright-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h6 class="copy-title"> Copyright &copy; 2022 <a data-toggle="modal" id="myBtn"
+                                style="cursor:pointer ;">Onkar Kulkarni</a> is powered by</h6>
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end copyright-main -->
+    </div>
+    <!-- end footer-box -->
+    </div>
+    <!-- end footer-main -->
+
+    <a href="#" class="scrollup" style="display: none;">Scroll</a>
+
+    <!-- <button id="myBtn">Open Modal</button> -->
+    
+
+    <!-- ALL JS FILES -->
+    <script src="{{url_for('static',filename='js/all.js')}}"></script>
+    <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{{url_for('static',filename='js/custom.js')}}"></script>
+    <script src="{{url_for('static',filename='js/location.js')}}"></script>
+</body>
+
+</html>

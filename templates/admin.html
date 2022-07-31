@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+
+    <!-- Site Metas -->
+    <title>MY MESS MENU</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}" />
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}" />
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/responsive.css')}}" />
+    <!-- color -->
+    <link id="changeable-colors" rel="stylesheet" href="{{url_for('static',filename='css/colors/orange.css')}}" />
+
+    <!-- Modernizer -->
+    <script src="{{url_for('static',filename='js/modernizer.js')}}"></script>
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="mess" class="">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="tab-menu">
+                    <div class="slider slider-nav">
+                        <div class="tab-title-menu">
+                            <h2>Dashboard</h2>
+                        </div>
+                        <div class="tab-title-menu">
+                            <h2>Messes</h2>
+                        </div>
+                        <div class="tab-title-menu">
+                            <h2>Customers</h2>
+                        </div>
+                        <div class="tab-title-menu">
+                            <h2>Orders</h2>
+                        </div>
+                    </div>
+                    <div class="slider slider-single">
+                        <div>
+                            <div class="col-lg-12 col-md-12 text-center">
+                                <div id="Dashborad" class="register-modal pad-top-100 pad-bottom-100">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-sm-6 mt-2">
+                                                <div class="card bg-warning shadow-lg" >
+                                                    <div class="card-body text-center text-white">
+                                                      <h5 class="card-title"><i class="fa fa-home fa-3x"></i></h5>
+                                                      <hr>
+                                                         {{countmess}}
+                                                      <hr>
+                                                      <h3 class="card-text">Messes</h3>
+                                                    </div>
+                                                  </div>
+                                            </div>
+                                            <div class="col-sm-6 mt-2">
+                                                <div class="card bg-secondary shadow-lg">
+                                                    <div class="card-body text-center text-white">
+                                                      <h5 class="card-title"><i class="fa fa-users fa-3x"></i></h5>
+                                                      <hr>
+                                                        {{countcustomer}}
+                                                      <hr>
+                                                      <h3 class="card-text">Customers</h3>
+                                                    </div>
+                                                  </div>
+                                            </div>
+                                            <div class="col-sm-12 mt-2">
+                                                <div class="card bg-success shadow-lg">
+                                                    <div class="card-body text-center text-white">
+                                                      <h5 class="card-title"><i class="fa fa-tasks fa-3x"></i></h5>
+                                                      <hr>
+                                                       {{countorders}}
+                                                      <hr>
+                                                      <h3 class="card-text">Orders</h3>
+                                                    </div>
+                                                  </div>
+                                            </div>
+                                             
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="col-sm-12">
+                                <hr style="height:2px ;background-color:black;">
+    
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Sr No</th>
+                                                <th>Mess Name</th>
+                                                <th>Owner Name</th>
+                                                <th>Email</th>
+                                                <th>Mobile</th>
+                                                <th>Address</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for res in aviewmess %}
+                                            <tr>
+                                                <td>{{loop.index}}</td>
+                                                <td>{{res[1]}}</td>
+                                                <td>{{res[2]}}</td>
+                                                <td>{{res[3]}}</td>
+                                                <td>{{res[4]}}</td>
+                                                <td>{{res[6]}}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+    
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="col-sm-12">
+                                <hr style="height:2px ;background-color:black;">
+    
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Sr No</th>
+                                                <th>Customer Name</th>
+                                                <th>Email</th>
+                                                <th>Mobile</th>
+                                                <th>Address</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for res in aviewcustomer %}
+                                            <tr>
+                                                <td>{{loop.index}}</td>
+                                                <td>{{res[1]}}</td>
+                                                <td>{{res[2]}}</td>
+                                                <td>{{res[3]}}</td>
+                                                <td>{{res[4]}}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+    
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="col-sm-12">
+                                <hr style="height:2px ;background-color:black;">
+    
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Sr No</th>
+                                                <th>Customer Name</th>
+                                                <th>Customer Email</th>
+                                                <th>Customer Mobile</th>
+                                                <th>Mess Name</th>
+                                                <th>Mess Email</th>
+                                                <th>Menu</th>
+                                                <th>No of Tiffeens</th>
+                                                <th>Order Date</th>
+                                                <th>Order Time</th>
+                                                <th>Order Payment</th>
+                                                <th>Customer Address</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for res in avieworders %}
+                                            <tr>
+                                                <td>{{loop.index}}</td>
+                                                <td>{{res[5]}}</td>
+                                                <td>{{res[6]}}</td>
+                                                <td>{{res[7]}}</td>
+                                                <td>{{res[9]}}</td>
+                                                <td>{{res[8]}}</td>
+                                                <td>{{res[10]}}</td>
+                                                <td>{{res[3]}}</td>
+                                                <td>{{res[1]}}</td>
+                                                <td>{{res[2]}}</td>
+                                                <td>{{res[4]}}</td>
+                                                <td>{{res[11]}}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end tab-menu -->
+            </div>
+            <!-- end col -->
+        </div>
+    </div>
+
+    <div class="tab-title-menu">
+        <a href="/logout">
+            <h2>Logout</h2>
+        </a>
+    </div>
+
+    <script src="{{url_for('static',filename='js/all.js')}}"></script>
+    <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{{url_for('static',filename='js/custom.js')}}"></script>
+</body>
+
+</html>
+
+
+
